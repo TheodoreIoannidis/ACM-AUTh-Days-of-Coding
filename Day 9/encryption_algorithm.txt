@@ -1,0 +1,28 @@
+//Gets the next prime after the number that was given to it as a parameter.
+//eg. if nextPrime(13) is called, it’ll return 17.
+function nextPrime(int prime) {
+	prime++
+	while ( isPrime(prime) == false ) {
+		prime++
+	}
+	return prime
+}
+
+function encrypt(String Message){
+	int[ Message.length() ] encrypted_message
+	int prime = 0
+	
+	for_each ( char c in Message ){
+		prime = nextPrime(prime)
+		encrypted_message.put( c * prime )
+		//c is the ascii number of the character and is in the range [65, 127]
+		//as in https://www.asciitable.com/
+	}
+	return encrypted_message
+}
+
+Main() {
+	String starting_message = ████████████████
+	String encrypted_message = encrypt( starting_message )
+	print( encrypted_message )
+}
